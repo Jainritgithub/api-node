@@ -19,9 +19,11 @@ const router = require('./routes/userRoutes')
 app.use('/', router)
 
 app.all("*", (req,res,next)=>{
-    res.status(404).json({success: false, message: `Route not found`})
+    res.status(404).json({success: false, message: `${req.url} Route not found`})
 })
 
+
+//server
 app.listen(process.env.PORT, ()=>{
     console.log(`This server is running on PORT ${process.env.PORT}`)
 })
